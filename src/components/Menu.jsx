@@ -25,8 +25,8 @@ const Menu = props => {
         </Button>
       </Link>
     </div>
-  )
-}
+  );
+};
 
 Menu.propTypes = {
   classes: PropTypes.object.isRequired

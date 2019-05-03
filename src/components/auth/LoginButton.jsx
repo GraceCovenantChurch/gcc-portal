@@ -12,11 +12,11 @@ const LoginButton = props => {
   }
 
   return (
-    <Button onClick={ _onClick } color={ color } className={ className }>
+    <Button onClick={_onClick} color={color} className={className}>
       Login
     </Button>
-  )
-}
+  );
+};
 
 LoginButton.propTypes = {
   className: PropTypes.string.isRequired,
