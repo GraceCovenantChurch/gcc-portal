@@ -6,12 +6,15 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 import LoginButton from "./auth/LoginButton";
 
 const styles = {
+  colorPrimary: {
+    backgroundColor: "#666666"
+  },
   root: {
     flexGrow: 1
   },
@@ -23,7 +26,7 @@ const styles = {
     marginRight: 20
   },
   toolbarUtil: {
-    marginLeft: 'auto'
+    marginLeft: "auto"
   }
 };
 
@@ -42,19 +45,23 @@ class NavigationBar extends Component {
 
     return (
       <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={ classes.grow }>
-            { process.env.REACT_APP_TITLE }
-          </Typography>
-          <div className={classes.toolbarUtil}>
-          <LoginButton className="signin" color="inherit" />
-          </div>
-        </Toolbar>
-      </AppBar>
+        <AppBar className={classes.colorPrimary} position="static">
+          <Toolbar>
+            <IconButton
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="Menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              {process.env.REACT_APP_TITLE}
+            </Typography>
+            <div className={classes.toolbarUtil}>
+              <LoginButton className="signin" color="inherit" />
+            </div>
+          </Toolbar>
+        </AppBar>
       </div>
     );
   }
@@ -63,7 +70,7 @@ class NavigationBar extends Component {
 NavigationBar.propTypes = {
   dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({}),
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
