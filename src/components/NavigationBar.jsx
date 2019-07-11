@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from "react";
 
-import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -11,70 +9,42 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import LoginButton from "./auth/LoginButton";
 
-const styles = {
-  colorPrimary: {
-    backgroundColor: "#666666"
-  },
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
-  flex: {
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
     flexGrow: 1
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  },
-  toolbarUtil: {
-    marginLeft: "auto"
+  colorPrimary: {
+    "background-color": "#1f232e"
   }
-};
+}));
 
-const INITIAL_STATE = {
-  active: false
-};
+export default function ButtonAppBar() {
+  const classes = useStyles();
 
-class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = INITIAL_STATE;
-  }
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <div className={classes.root}>
-        <AppBar className={classes.colorPrimary} position="static">
-          <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              {process.env.REACT_APP_TITLE}
-            </Typography>
-            <div className={classes.toolbarUtil}>
-              <LoginButton className="signin" color="inherit" />
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  }
+  return (
+    <div className={classes.root}>
+      <AppBar className={classes.colorPrimary} position="static">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="Menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            {process.env.REACT_APP_TITLE}
+          </Typography>
+          <LoginButton />
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
-
-NavigationBar.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  history: PropTypes.shape({}),
-  classes: PropTypes.object.isRequired
-};
-
-function mapStateToProps(state) {
-  return state;
-}
-
-export default connect(mapStateToProps)(withStyles(styles)(NavigationBar));
