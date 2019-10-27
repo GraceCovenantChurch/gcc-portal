@@ -42,7 +42,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             {process.env.REACT_APP_TITLE}
           </Typography>
-          <LoginButton />
+          <LoginButton color={"black"} className={"login"} />
         </Toolbar>
       </AppBar>
     </div>
