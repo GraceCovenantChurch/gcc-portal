@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import NavigationBar from "components/NavigationBar";
-import Splash from "pages/Splash";
+import Home from "pages/home/Home";
 
 import { UserContextProvider } from "context/UserContext";
 
@@ -25,7 +25,7 @@ export class App extends Component {
               <NavigationBar />
             </header>
             <div className={styles.main}>
-              <Route exact path="/" component={Splash} />
+              <Route exact path="/" component={Home} />
             </div>
           </div>
         </Router>
