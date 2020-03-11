@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {GoogleLogin, GoogleLogout} from "react-google-login";
+import React, { useState } from "react";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 import Button from "@material-ui/core/Button";
 
@@ -7,6 +7,7 @@ const AuthButton = props => {
   const [auth, setAuth] = useState(true);
 
   const success = response => {
+    console.log(response);
     setAuth(false);
   };
 
@@ -28,7 +29,7 @@ const AuthButton = props => {
           offline={false}
           approvalPrompt="force"
           responseType="id_token"
-          isSignedIn
+          isSignedIn="isSignedIn"
           theme="dark"
         >
           <span>Login Here</span>
