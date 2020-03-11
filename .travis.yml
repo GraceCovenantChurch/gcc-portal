@@ -4,7 +4,7 @@ node_js:
 
 cache:
   directories:
-  - node_modules
+    - node_modules
 
 script:
   - npm test
@@ -18,6 +18,6 @@ deploy:
   region: us-east-1
   on:
     branch: master
-    repo: GraceCovenantChurch/gcc_portal
+    repo: GraceCovenantChurch/gcc-portal
   skip_cleanup: true
   local_dir: build
