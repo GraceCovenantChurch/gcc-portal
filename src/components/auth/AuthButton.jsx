@@ -46,10 +46,9 @@ class AuthButton extends Component {
             offline={false}
             approvalPrompt="force"
             isSignedIn="isSignedIn"
+            prompt="select_account"
             theme="dark"
-          >
-            <span>Login Here</span>
-          </GoogleLogin>
+          />
         ) : (
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}

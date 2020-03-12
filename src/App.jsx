@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import NavigationBar from "components/NavigationBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import NavigationBar from "components/nav/NavigationBar";
 import Home from "pages/home/Home";
 
 import { UserContextProvider } from "context/UserContext";
@@ -20,14 +22,14 @@ export class App extends Component {
     return (
       <UserContextProvider>
         <Router>
-          <div className={styles.app}>
-            <header className={styles.appHeader}>
-              <NavigationBar />
-            </header>
-            <div className={styles.main}>
-              <Route exact path="/" component={Home} />
+          <CssBaseline />
+          <NavigationBar>
+            <div className={styles.app}>
+              <div className={styles.main}>
+                <Route exact path="/" component={Home} />
+              </div>
             </div>
-          </div>
+          </NavigationBar>
         </Router>
       </UserContextProvider>
     );
