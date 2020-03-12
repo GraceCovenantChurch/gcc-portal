@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component SNAPSHOT: should render correctly 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
+  >
+    <div
+      className="MuiPaper-root Dashboard-paper-1 Dashboard-fixedHeight-2 MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <h2
+        className="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary MuiTypography-gutterBottom"
+      >
+        Today
+      </h2>
+      <div
+        className="recharts-responsive-container"
+        id="undefined"
+        style={
+          Object {
+            "height": "100%",
+            "maxHeight": undefined,
+            "minHeight": undefined,
+            "minWidth": undefined,
+            "width": "100%",
+          }
+        }
+      >
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
