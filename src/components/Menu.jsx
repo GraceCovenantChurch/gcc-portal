@@ -5,16 +5,16 @@ import { BrowserRouter as Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
+const styles = (theme) => ({
   button: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
   },
   input: {
-    display: "none"
-  }
+    display: "none",
+  },
 });
 
-const Menu = props => {
+const Menu = (props) => {
   let { classes } = props;
 
   return (
@@ -29,7 +29,7 @@ const Menu = props => {
 };
 
 Menu.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Menu);

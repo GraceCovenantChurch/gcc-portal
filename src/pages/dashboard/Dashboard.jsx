@@ -8,16 +8,16 @@ import Paper from "@material-ui/core/Paper";
 
 import Chart from "./Chart";
 
-const styles = theme => ({
+const styles = (theme) => ({
   paper: {
     padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   fixedHeight: {
-    height: 240
-  }
+    height: 240,
+  },
 });
 
 const data = [
@@ -29,7 +29,7 @@ const data = [
   createData("15:00", 2000),
   createData("18:00", 2400),
   createData("21:00", 2400),
-  createData("24:00", undefined)
+  createData("24:00", undefined),
 ];
 
 // Generate Sales Data
@@ -55,7 +55,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Dashboard);

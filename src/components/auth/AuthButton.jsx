@@ -3,65 +3,63 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 
 import Button from "@material-ui/core/Button";
 
-import UserContext from "context/UserContext";
+import UserContext, { UserContextConsumer } from "context/UserContext";
 
 class AuthButton extends Component {
   static contextType = UserContext;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      auth: true
-    };
-  }
-
-  setAuth = () => {
-    this.setState(prevState => ({ auth: !prevState.auth }));
+  success = (response) => {
+    let user = response.profileObj;
+    this.context.login(user);
   };
 
-  success = response => {
-    let user = response.profileObj;
-    this.context.setUser(user);
-    this.setAuth(false);
+  failure = (response) => {
+    console.error(response.error);
   };
 
   logout = () => {
-    this.context.clearUser();
-    this.setAuth(true);
+    this.context.logout();
   };
 
   render() {
-    let { auth } = this.state;
     return (
-      <div>
-        {auth ? (
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            onSuccess={this.success}
-            render={renderProps => (
-              <Button color="inherit" onClick={renderProps.onClick}>
-                Login
-              </Button>
-            )}
-            offline={false}
-            approvalPrompt="force"
-            isSignedIn="isSignedIn"
-            prompt="select_account"
-            theme="dark"
-          />
-        ) : (
-          <GoogleLogout
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            render={renderProps => (
-              <Button color="inherit" onClick={renderProps.onClick}>
-                Logout
-              </Button>
-            )}
-            onLogoutSuccess={this.logout}
-          />
-        )}
-      </div>
+      <UserContextConsumer>
+        {({ user, authState }) => {
+          if (authState) {
+            return (
+              <GoogleLogout
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Logout"
+                render={(renderProps) => (
+                  <Button color="inherit" onClick={renderProps.onClick}>
+                    Logout
+                  </Button>
+                )}
+                onLogoutSuccess={this.logout}
+              />
+            );
+          } else {
+            return (
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                onSuccess={this.success}
+                onFailure={this.failure}
+                render={(renderProps) => (
+                  <Button color="inherit" onClick={renderProps.onClick}>
+                    Login
+                  </Button>
+                )}
+                offline={false}
+                approvalPrompt="force"
+                isSignedIn
+                prompt="select_account"
+                theme="dark"
+                cookiePolicy={"single_host_origin"}
+              />
+            );
+          }
+        }}
+      </UserContextConsumer>
     );
   }
 }

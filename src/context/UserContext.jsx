@@ -1,21 +1,39 @@
 import React, { Component } from "react";
+import { useGoogleLogin } from "react-google-login";
+
+import { user, INITIAL_USER_DATA } from "common/user";
 
 const UserContext = React.createContext();
 
 class UserContextProvider extends Component {
-  state = {
-    user: {},
-    isLoggedIn: false,
-    setUser: value => this.setUser(value),
-    clearUser: () => this.clearUser()
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: INITIAL_USER_DATA,
+      authState: false,
+      login: (value) => this.login(value),
+      logout: () => this.logout(),
+    };
+  }
+
+  componentDidMount() {
+    let user = sessionStorage.getItem("userData");
+
+    if (user && !this.state.authState) {
+      this.login(JSON.parse(user));
+    } else if (!user && this.state.authState) {
+      this.logout();
+    }
+  }
+
+  login = (value) => {
+    sessionStorage.setItem("userData", JSON.stringify(value));
+    this.setState({ authState: true, user: value });
   };
 
-  setUser = value => {
-    this.setState({ user: value, isLoggedIn: true });
-  };
-
-  clearUser = () => {
-    this.setState({ user: {}, isLoggedIn: false });
+  logout = () => {
+    this.setState({ authState: false, user: INITIAL_USER_DATA });
   };
 
   render() {

@@ -1,6 +1,7 @@
 import React from "react";
 
-const DisplayAccount = props => {
+const DisplayAccount = (props) => {
+  console.log(props);
   let { user } = props;
   return (
     <div>
