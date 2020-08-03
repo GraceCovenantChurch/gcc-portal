@@ -8,10 +8,12 @@ import { UserContextConsumer } from "context/UserContext";
 const Home = () => {
   return (
     <UserContextConsumer>
-      {({ user, isLoggedIn }) => {
-        return (
-          <div>{isLoggedIn ? <DisplayAccount user={user} /> : <Splash />}</div>
-        );
+      {({ user, authState }) => {
+        if (authState) {
+          return <DisplayAccount user={user} />;
+        } else {
+          return <Splash />;
+        }
       }}
     </UserContextConsumer>
   );

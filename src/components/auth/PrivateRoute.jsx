@@ -1,24 +1,25 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
+import NotAuthenticated from "./NotAuthenticated";
 import { UserContextConsumer } from "context/UserContext";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = (props) => {
   return (
     <UserContextConsumer>
-      {({ user, isLoggedIn }) => {
-        return (
-          <Route
-            {...rest}
-            render={props =>
-              isLoggedIn === true ? (
-                <Component {...props} />
-              ) : (
-                <Redirect to="/" />
-              )
-            }
-          />
-        );
+      {({ user, authState }) => {
+        let Component = props.component;
+
+        if (authState) {
+          return (
+            <Route
+              {...props}
+              render={(props) => <Component user={user} {...props} />}
+            />
+          );
+        } else {
+          return <NotAuthenticated />;
+        }
       }}
     </UserContextConsumer>
   );

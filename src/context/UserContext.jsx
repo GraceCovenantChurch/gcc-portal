@@ -3,19 +3,35 @@ import React, { Component } from "react";
 const UserContext = React.createContext();
 
 class UserContextProvider extends Component {
-  state = {
-    user: {},
-    isLoggedIn: false,
-    setUser: value => this.setUser(value),
-    clearUser: () => this.clearUser()
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {},
+      authState: false,
+      login: (value) => this.login(value),
+      logout: () => this.logout(),
+    };
+  }
+
+  componentDidMount() {
+    let user = localStorage.getItem("userData");
+
+    if (user) {
+      this.login(JSON.parse(user));
+    } else {
+      this.logout();
+    }
+  }
+
+  login = (value) => {
+    localStorage.setItem("userData", JSON.stringify(value));
+    this.setState({ authState: true, user: value });
   };
 
-  setUser = value => {
-    this.setState({ user: value, isLoggedIn: true });
-  };
-
-  clearUser = () => {
-    this.setState({ user: {}, isLoggedIn: false });
+  logout = () => {
+    localStorage.removeItem("userData");
+    this.setState({ authState: false, user: {} });
   };
 
   render() {

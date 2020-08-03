@@ -6,7 +6,7 @@ import {
   XAxis,
   YAxis,
   Label,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from "recharts";
 import Title from "components/pages/Title";
 
@@ -23,7 +23,7 @@ export default function Chart(props) {
             top: 16,
             right: 16,
             bottom: 0,
-            left: 24
+            left: 24,
           }}
         >
           <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
