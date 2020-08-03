@@ -9,8 +9,7 @@ class AuthButton extends Component {
   static contextType = UserContext;
 
   success = (response) => {
-    let user = response.profileObj;
-    this.context.login(user);
+    this.context.login(response);
   };
 
   failure = (response) => {
@@ -51,7 +50,7 @@ class AuthButton extends Component {
                 )}
                 offline={false}
                 approvalPrompt="force"
-                isSignedIn
+                isSignedIn={true}
                 prompt="select_account"
                 theme="dark"
                 cookiePolicy={"single_host_origin"}

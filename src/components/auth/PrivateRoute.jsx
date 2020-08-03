@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { useGoogleLogin } from "react-google-login";
 
 import NotAuthenticated from "./NotAuthenticated";
 import { UserContextConsumer } from "context/UserContext";

@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { useGoogleLogin } from "react-google-login";
-
-import { user, INITIAL_USER_DATA } from "common/user";
 
 const UserContext = React.createContext();
 
@@ -10,7 +7,7 @@ class UserContextProvider extends Component {
     super(props);
 
     this.state = {
-      user: INITIAL_USER_DATA,
+      user: {},
       authState: false,
       login: (value) => this.login(value),
       logout: () => this.logout(),
@@ -18,22 +15,23 @@ class UserContextProvider extends Component {
   }
 
   componentDidMount() {
-    let user = sessionStorage.getItem("userData");
+    let user = localStorage.getItem("userData");
 
-    if (user && !this.state.authState) {
+    if (user) {
       this.login(JSON.parse(user));
-    } else if (!user && this.state.authState) {
+    } else {
       this.logout();
     }
   }
 
   login = (value) => {
-    sessionStorage.setItem("userData", JSON.stringify(value));
+    localStorage.setItem("userData", JSON.stringify(value));
     this.setState({ authState: true, user: value });
   };
 
   logout = () => {
-    this.setState({ authState: false, user: INITIAL_USER_DATA });
+    localStorage.removeItem("userData");
+    this.setState({ authState: false, user: {} });
   };
 
   render() {

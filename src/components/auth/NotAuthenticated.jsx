@@ -1,8 +1,10 @@
 import React from "react";
 
+import styles from "./NotAuthenticated.module.scss";
+
 const NotAuthenticated = () => {
   return (
-    <div>
+    <div className={styles.notAuthenticated}>
       You are not authenticated to use GCC Portal. If you are permitted to use
       GCC Portal, please log in with your GCC Google Account provided to you. If
       you are still having issues logging in, please contact

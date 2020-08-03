@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import DisplayAccount from "components/auth/DisplayAccount";
 import Splash from "pages/splash/Splash";
@@ -9,15 +9,11 @@ const Home = () => {
   return (
     <UserContextConsumer>
       {({ user, authState }) => {
-        let component;
-
         if (authState) {
-          component = <DisplayAccount user={user} />;
+          return <DisplayAccount user={user} />;
         } else {
-          component = <Splash />;
+          return <Splash />;
         }
-
-        return component;
       }}
     </UserContextConsumer>
   );
