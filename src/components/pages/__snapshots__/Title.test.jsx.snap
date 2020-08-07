@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Title component SNAPSHOT: should render correctly 1`] = `
-<h2
-  className="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary MuiTypography-gutterBottom"
+<h1
+  className="MuiTypography-root MuiTypography-h2 MuiTypography-colorPrimary MuiTypography-gutterBottom MuiTypography-alignCenter"
 >
   RANDOM TEXT
-</h2>
+</h1>
 `;
