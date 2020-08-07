@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -102,9 +102,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavigationBar(props) {
+const NavigationBar = (props) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -169,4 +169,6 @@ export default function NavigationBar(props) {
       </main>
     </div>
   );
-}
+};
+
+export default NavigationBar;
