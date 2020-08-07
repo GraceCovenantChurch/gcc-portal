@@ -2,11 +2,11 @@
 
 exports[`Chart component SNAPSHOT: should render correctly 1`] = `
 Array [
-  <h2
-    className="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary MuiTypography-gutterBottom"
+  <h1
+    className="MuiTypography-root MuiTypography-h2 MuiTypography-colorPrimary MuiTypography-gutterBottom MuiTypography-alignCenter"
   >
     Today
-  </h2>,
+  </h1>,
   <div
     className="recharts-responsive-container"
     id="undefined"

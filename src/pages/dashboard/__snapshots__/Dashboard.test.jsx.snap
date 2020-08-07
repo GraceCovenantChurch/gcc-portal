@@ -10,11 +10,11 @@ exports[`Dashboard component SNAPSHOT: should render correctly 1`] = `
     <div
       className="MuiPaper-root Dashboard-paper-1 Dashboard-fixedHeight-2 MuiPaper-elevation1 MuiPaper-rounded"
     >
-      <h2
-        className="MuiTypography-root MuiTypography-h6 MuiTypography-colorPrimary MuiTypography-gutterBottom"
+      <h1
+        className="MuiTypography-root MuiTypography-h2 MuiTypography-colorPrimary MuiTypography-gutterBottom MuiTypography-alignCenter"
       >
         Today
-      </h2>
+      </h1>
       <div
         className="recharts-responsive-container"
         id="undefined"

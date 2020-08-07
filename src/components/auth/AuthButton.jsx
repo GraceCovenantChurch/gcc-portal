@@ -48,11 +48,12 @@ class AuthButton extends Component {
                     Login
                   </Button>
                 )}
-                offline={false}
+                accessType="offline"
                 approvalPrompt="force"
                 isSignedIn={true}
                 prompt="select_account"
                 theme="dark"
+                uxMode="redirect"
                 cookiePolicy={"single_host_origin"}
               />
             );

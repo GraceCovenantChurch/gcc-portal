@@ -1,15 +1,14 @@
 import React from "react";
 
-import styles from "./NotAuthenticated.module.scss";
+import Subtitle from "components/pages/Subtitle";
 
 const NotAuthenticated = () => {
   return (
-    <div className={styles.notAuthenticated}>
-      You are not authenticated to use GCC Portal. If you are permitted to use
-      GCC Portal, please log in with your GCC Google Account provided to you. If
-      you are still having issues logging in, please contact
+    <Subtitle>
+      Please log in with your GCC Google Account provided to you before viewing
+      this page. If you are still having issues logging in, please contact
       web@gracecovenant.net.
-    </div>
+    </Subtitle>
   );
 };
 
