@@ -54,7 +54,6 @@ class AuthButton extends Component {
                 prompt="select_account"
                 theme="dark"
                 uxMode="redirect"
-                cookiePolicy={"single_host_origin"}
               />
             );
           }

@@ -5,7 +5,7 @@ import Subtitle from "components/pages/Subtitle";
 
 const Welcome = (props) => {
   let { profileObj } = props.user;
-  console.log(profileObj);
+
   return (
     <React.Fragment>
       <Title>GCC Portal</Title>

@@ -1,7 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
-import NotAuthenticated from "./NotAuthenticated";
 import { UserContextConsumer } from "context/UserContext";
 
 const PrivateRoute = (props) => {
@@ -9,6 +8,8 @@ const PrivateRoute = (props) => {
     <UserContextConsumer>
       {({ user, authState }) => {
         let Component = props.component;
+
+        console.log(authState);
 
         if (authState) {
           return (
@@ -18,7 +19,7 @@ const PrivateRoute = (props) => {
             />
           );
         } else {
-          return <NotAuthenticated />;
+          return <Redirect to="/" />;
         }
       }}
     </UserContextConsumer>
