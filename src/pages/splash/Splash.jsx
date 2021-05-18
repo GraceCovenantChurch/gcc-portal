@@ -1,19 +1,24 @@
 import React from "react";
 
+import Title from "components/pages/Title";
+import Subtitle from "components/pages/Subtitle";
+
 import styles from "./Splash.module.scss";
 
 const Splash = () => {
   return (
     <div className={styles.splash}>
       <div className="splash-text">
-        <h1>
+        <Title>
           Welcome to <b>GCC Portal</b>
-        </h1>
-        <p className="lead">
-          Please be sure you have a Grace Covenant Google Account. <br />
-          If you are confused, please contact web@gracecovenant.net <br />
-        </p>
+        </Title>
+        <Subtitle>
+          This webpage is designed for administative purposes at Grace Covenant
+          Church. To begin using this page, please use your Google Account to
+          sign into GCC Portal.
+        </Subtitle>
         <hr className="my-2" />
+        <Subtitle>Placeholder: Lorem Ipsum</Subtitle>
       </div>
     </div>
   );
