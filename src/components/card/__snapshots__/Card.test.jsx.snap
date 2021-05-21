@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component SNAPSHOT: should render correctly 1`] = `
+<div
+  className="MuiPaper-root MuiCard-root makeStyles-card-1 MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    className="MuiCardMedia-root makeStyles-cardMedia-2"
+    style={
+      Object {
+        "backgroundImage": "url(\\"https://www.volgacrc.org/editoruploads/images/FaithWebsites/church_mid_img1.jpg\\")",
+      }
+    }
+    title="randomheading"
+  />
+  <div
+    className="MuiCardContent-root makeStyles-cardContent-3"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+    >
+      randomheading
+    </h2>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      You have a recording of an old sermon? Please upload it here!
+    </p>
+  </div>
+  <div
+    className="MuiCardActions-root MuiCardActions-spacing"
+  >
+    <a
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-textSizeSmall MuiButton-sizeSmall"
+      href="/dashboard"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Click Here
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</div>
+`;

@@ -7,9 +7,7 @@ const PrivateRoute = (props) => {
   return (
     <UserContextConsumer>
       {({ user, authState }) => {
-        let Component = props.component;
-
-        console.log(authState);
+        let Component = props.comp;
 
         if (authState) {
           return (
