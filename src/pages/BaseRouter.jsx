@@ -17,8 +17,8 @@ const BaseRouter = () => {
       <div className={styles.main}>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={NotAuthenticated} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <PrivateRoute exact path="/sermon" component={Sermon} />
+        <PrivateRoute exact path="/dashboard" comp={Dashboard} />
+        <PrivateRoute exact path="/sermon" comp={Sermon} />
       </div>
     </div>
   );

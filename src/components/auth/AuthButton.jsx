@@ -43,6 +43,7 @@ class AuthButton extends Component {
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 onSuccess={this.success}
                 onFailure={this.failure}
+                hostedDomain="gracecovenant.net"
                 render={(renderProps) => (
                   <Button color="inherit" onClick={renderProps.onClick}>
                     Login
@@ -53,7 +54,7 @@ class AuthButton extends Component {
                 isSignedIn={true}
                 prompt="select_account"
                 theme="dark"
-                uxMode="redirect"
+                cookiePolicy={"single_host_origin"}
               />
             );
           }
